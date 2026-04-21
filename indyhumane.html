@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join The Paw Pack | IndyHumane Monthly Giving</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #3cb7d3;
+    --red: #d8232c;
+    --teal-dark: #2a96ae;
+    --red-dark: #b01e25;
+    --cream: #fef9f4;
+    --ink: #1a1a2e;
+    --gray: #6b7280;
+    --light: #f0fafd;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  }
+
+  .logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .logo-img {
+    height: 48px;
+    width: auto;
+  }
+
+  .header-cta {
+    background: var(--red);
+    color: white;
+    padding: 0.65rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .header-cta:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://indyhumane.org/wp-content/uploads/2021/05/hero-dog.png'),
+      linear-gradient(135deg, #1a1a2e 0%, #0f3d4a 100%);
+    background-size: cover;
+    background-position: right center;
+    opacity: 0.35;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, rgba(26,26,46,0.92) 45%, rgba(60,183,211,0.15) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    padding: 4rem 3rem 4rem 5rem;
+    animation: heroFade 1s ease both;
+  }
+
+  @keyframes heroFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 span { color: var(--teal); }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: white;
+    padding: 1rem 2.2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 4px 24px rgba(216,35,44,0.4);
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(216,35,44,0.5); }
+
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 1rem 2.2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.5);
+    transition: all 0.25s;
+  }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+
+  .vsl-placeholder {
+    margin-top: 2.5rem;
+    background: rgba(255,255,255,0.08);
+    border: 2px dashed rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    max-width: 540px;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--teal);
+    padding: 2.5rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .stat-item {}
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: white;
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 5rem 5rem; }
+
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  .section-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #444;
+    max-width: 640px;
+  }
+
+  /* PAIN POINTS */
+  .pain {
+    background: var(--ink);
+    color: white;
+    padding: 5rem;
+  }
+
+  .pain .section-title { color: white; }
+  .pain .section-body { color: rgba(255,255,255,0.75); max-width: 100%; }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .pain-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .pain-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+
+  .pain-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--teal);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .pain-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: white;
+  }
+
+  .pain-card p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  /* WHY US */
+  .why-us {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    padding: 5rem;
+  }
+
+  .why-image {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .why-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .why-badge-float {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .why-badge-float .big-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--teal);
+  }
+
+  .why-badge-float .badge-text {
+    font-size: 0.8rem;
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .proof-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .pill {
+    background: var(--light);
+    border: 1px solid var(--teal);
+    color: var(--teal-dark);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.45rem 1rem;
+    border-radius: 50px;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--teal);
+    padding: 1rem 1.5rem;
+    background: var(--light);
+    border-radius: 0 12px 12px 0;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.7;
+    font-style: italic;
+    margin-top: 1.5rem;
+  }
+
+  blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--teal-dark);
+    font-size: 0.85rem;
+  }
+
+  /* 3 STEPS */
+  .steps {
+    background: var(--light);
+    text-align: center;
+    padding: 5rem;
+  }
+
+  .steps .section-title { margin-bottom: 0.75rem; }
+  .steps .section-body { margin: 0 auto 3.5rem; text-align: center; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+  }
+
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 4rem;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: linear-gradient(to right, var(--teal), var(--red));
+    z-index: 0;
+  }
+
+  .step-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    transition: transform 0.3s;
+  }
+  .step-card:hover { transform: translateY(-6px); }
+
+  .step-num {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: white;
+    margin: 0 auto 1.5rem;
+  }
+
+  .step-num-1 { background: var(--teal); }
+  .step-num-2 { background: linear-gradient(135deg, var(--teal), var(--red)); }
+  .step-num-3 { background: var(--red); }
+
+  .step-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-card p {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .steps .btn-primary {
+    margin-top: 3rem;
+    display: inline-block;
+  }
+
+  /* PAW PACK TIERS */
+  .tiers {
+    padding: 5rem;
+    background: var(--cream);
+    text-align: center;
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .tier-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    border: 2px solid #e8e8e8;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tier-card.featured {
+    border-color: var(--teal);
+    box-shadow: 0 12px 48px rgba(60,183,211,0.2);
+    transform: scale(1.04);
+  }
+
+  .tier-featured-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--teal);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.4rem;
+    text-align: center;
+  }
+
+  .tier-card:hover { transform: translateY(-4px); border-color: var(--teal); }
+  .tier-card.featured:hover { transform: scale(1.04) translateY(-4px); }
+
+  .tier-icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
+  .tier-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+  }
+  .tier-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 0.25rem;
+  }
+  .tier-price span { font-size: 1rem; font-weight: 500; color: var(--gray); }
+  .tier-positioning {
+    font-size: 0.85rem;
+    color: var(--gray);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .tier-perks {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+  .tier-perks li {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    color: #444;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .tier-perks li::before {
+    content: '✓';
+    color: var(--teal);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .tier-btn {
+    display: block;
+    text-align: center;
+    background: var(--teal);
+    color: white;
+    padding: 0.85rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .tier-btn:hover { background: var(--teal-dark); }
+  .tier-btn.red { background: var(--red); }
+  .tier-btn.red:hover { background: var(--red-dark); }
+
+  /* SOCIAL PROOF */
+  .social-proof {
+    background: var(--ink);
+    padding: 5rem;
+    color: white;
+    text-align: center;
+  }
+
+  .social-proof .section-title { color: white; }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .proof-card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: left;
+  }
+
+  .stars { color: #fbbf24; font-size: 1.1rem; margin-bottom: 1rem; }
+
+  .proof-quote {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .proof-name { font-weight: 600; color: var(--teal); font-size: 0.9rem; }
+
+  .charity-badge {
+    margin-top: 3rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+  }
+
+  .charity-badge-text {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    text-align: left;
+    line-height: 1.4;
+  }
+
+  /* DONATION FORM SECTION */
+  .donate-section {
+    padding: 5rem;
+    background: white;
+    text-align: center;
+  }
+
+  .form-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-subline {
+    color: var(--gray);
+    margin-bottom: 3rem;
+    font-size: 1rem;
+  }
+
+  .donate-form-box {
+    background: var(--light);
+    border-radius: 24px;
+    padding: 3rem;
+    max-width: 640px;
+    margin: 0 auto;
+    border: 2px solid rgba(60,183,211,0.2);
+  }
+
+  .amount-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .amount-btn {
+    background: white;
+    border: 2px solid #d1d5db;
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .amount-btn:hover, .amount-btn.active {
+    border-color: var(--teal);
+    background: var(--teal);
+    color: white;
+  }
+
+  .donate-form-placeholder {
+    background: rgba(60,183,211,0.08);
+    border: 2px dashed var(--teal);
+    border-radius: 12px;
+    padding: 2rem;
+    color: var(--teal-dark);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .donate-btn-big {
+    display: block;
+    width: 100%;
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 1.2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.25s;
+    box-shadow: 0 4px 24px rgba(216,35,44,0.3);
+    text-decoration: none;
+  }
+  .donate-btn-big:hover { background: var(--red-dark); transform: translateY(-2px); }
+
+  /* FAQ */
+  .faq {
+    padding: 5rem;
+    background: var(--cream);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .faq .section-title { text-align: center; }
+  .faq .section-label { text-align: center; display: block; }
+
+  .faq-list { margin-top: 3rem; }
+
+  .faq-item {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1.25rem 0;
+  }
+
+  .faq-q {
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ink);
+    user-select: none;
+  }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--teal);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+
+  .faq-a {
+    display: none;
+    padding-top: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .faq-item.open .faq-a { display: block; }
+
+  /* EMAIL OPT IN */
+  .optin {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    padding: 4rem 5rem;
+    text-align: center;
+    color: white;
+  }
+
+  .optin h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .optin p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .optin-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 480px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .optin-input {
+    flex: 1;
+    padding: 0.9rem 1.25rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    min-width: 220px;
+    outline: none;
+  }
+
+  .optin-btn {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .optin-btn:hover { background: var(--red-dark); }
+
+  .optin-fine {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.7);
+    padding: 3rem 5rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .footer-logo img { height: 44px; filter: brightness(10); margin-bottom: 1rem; }
+  .footer-tagline { font-size: 0.9rem; line-height: 1.6; }
+
+  .footer-col h4 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--teal); }
+
+  .footer-bottom {
+    background: rgba(0,0,0,0.3);
+    padding: 1rem 5rem;
+    text-align: center;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    header { padding: 1rem 1.5rem; }
+    section, .pain, .why-us, .steps, .tiers, .social-proof, .donate-section, .faq, .optin { padding: 3rem 1.5rem; }
+    footer { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+    .footer-bottom { padding: 1rem 1.5rem; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; }
+    .why-us { grid-template-columns: 1fr; gap: 2rem; }
+    .pain-grid, .steps-grid, .tiers-grid, .proof-grid { grid-template-columns: 1fr; }
+    .tier-card.featured { transform: scale(1); }
+    .hero-content { padding: 3rem 1.5rem; }
+    .steps-grid::before { display: none; }
+    .amount-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-wrap">
+    <img class="logo-img" src="https://149955744.v2.pressablecdn.com/wp-content/uploads/2023/05/Logo_Horiz.png" alt="IndyHumane" />
+  </div>
+  <a href="#donate" class="header-cta">Join the Paw Pack</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-badge">Saving lives since 1905</span>
+    <h1>Central Indiana's <span>homeless pets</span> need you every single month.</h1>
+    <p class="hero-sub">
+      2,923 animals found forever homes at IndyHumane in 2024. Each one depended on donors like you showing up month after month. Join the Paw Pack today and make that possible for thousands more.
+    </p>
+    <div class="hero-ctas">
+      <a href="#donate" class="btn-primary">Give Monthly Now</a>
+      <a href="#why-us" class="btn-secondary">See the Impact</a>
+    </div>
+    <div class="vsl-placeholder">
+      [VSL PLACEHOLDER — Your 60-90 second intro video goes here. Walk viewers through the shelter, introduce a pet by name, and end with the monthly giving ask.]
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num">2,923</span>
+    <span class="stat-label">Adoptions in 2024</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">7,297</span>
+    <span class="stat-label">Spay/Neuter Surgeries</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">1M+lbs</span>
+    <span class="stat-label">Pet Food Distributed</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">529</span>
+    <span class="stat-label">Volunteers Strong</span>
+  </div>
+</div>
+
+<!-- PAIN POINTS -->
+<section class="pain">
+  <div class="reveal">
+    <span class="section-label" style="color: var(--teal);">The problem is real</span>
+    <h2 class="section-title">Every day in Indianapolis, animals wait in fear.</h2>
+    <p class="section-body">You care. But caring from the sidelines while thousands of animals cycle through shelters every year isn't enough. The problem is bigger than any one donation. It needs people who show up every month.</p>
+  </div>
+  <div class="pain-grid reveal">
+    <div class="pain-card">
+      <div class="pain-icon">🐾</div>
+      <h3>3,556 animals came to us in 2024 alone</h3>
+      <p>Dogs. Cats. Animals from difficult situations, broken homes, overcrowded streets. Each one deserves care, food, and a safe place to wait for their person.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">💔</div>
+      <h3>IndyHumane receives zero government funding</h3>
+      <p>Every surgery, every vaccine, every meal for every animal in our care is paid for by people like you. Without consistent monthly support, animals go without.</p>
+    </div>
+    <div class="pain-card">
+      <div class="pain-icon">⏳</div>
+      <h3>It costs $30 a day to house one animal</h3>
+      <p>Some pets wait weeks or even months. For those in the 100 Day Club, they have waited more than 100 days for someone to say yes. That adds up fast.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US + SOCIAL PROOF -->
+<section id="why-us" class="why-us">
+  <div class="why-image reveal">
+    <img src="https://indyhumane.org/wp-content/uploads/2021/07/IH_WebsitePets_Kitty6_PURPLE-1-e1628012991557.png" alt="Shelter pet at IndyHumane" />
+    <div class="why-badge-float">
+      <span class="big-num">4⭐</span>
+      <span class="badge-text">Charity Navigator<br>Top-Rated Nonprofit</span>
+    </div>
+  </div>
+  <div class="why-content reveal">
+    <span class="section-label">Why IndyHumane</span>
+    <h2 class="section-title">More than a shelter. A solution for central Indiana's animals.</h2>
+    <p class="section-body">Since 1905, IndyHumane has been the most trusted resource for homeless pets in Indianapolis. We don't euthanize for space or cost. Every animal in our care gets medical treatment, behavioral support, and a real shot at a loving home.</p>
+    <div class="proof-pills">
+      <span class="pill">120 years of service</span>
+      <span class="pill">4-Star Charity Navigator</span>
+      <span class="pill">No government funding</span>
+      <span class="pill">95% enrichment adoption rate</span>
+    </div>
+    <blockquote>
+      "The team at IndyHumane goes above and beyond every single day. They saved my dog's life and helped me understand how to care for her long term. I will donate every month for as long as they exist."
+      <cite>Sarah K., Monthly Donor</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- 3 STEPS -->
+<section class="steps">
+  <span class="section-label" style="display:block; text-align:center;">It's this simple</span>
+  <h2 class="section-title reveal">Join the Paw Pack in three easy steps.</h2>
+  <p class="section-body reveal">You shouldn't have to navigate a complicated process to do something good. Here is exactly what happens when you become a monthly donor today.</p>
+  <div class="steps-grid">
+    <div class="step-card reveal">
+      <div class="step-num step-num-1">1</div>
+      <h3>Choose Your Monthly Amount</h3>
+      <p>Pick the tier that feels right for you. Every dollar level makes a real, measurable difference for the animals in our care. Start at $15, $50, or $100 per month.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num step-num-2">2</div>
+      <h3>We Put It to Work Immediately</h3>
+      <p>Your gift goes directly to animal care: food, medical treatment, behavioral enrichment, and the staff who love these animals every day. No middlemen, no waste.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num step-num-3">3</div>
+      <h3>Watch Lives Change Every Month</h3>
+      <p>You will get real monthly updates on the animals your gift is helping. Impact reports, adoption stories, and a seat at the table as an official member of the Paw Pack.</p>
+    </div>
+  </div>
+  <a href="#donate" class="btn-primary">Become a Paw Pack Member</a>
+</section>
+
+<!-- PAW PACK TIERS -->
+<section class="tiers" id="tiers">
+  <span class="section-label">Monthly Giving Community</span>
+  <h2 class="section-title reveal">Join the Paw Pack</h2>
+  <p class="section-body reveal" style="margin:0 auto 0.5rem; text-align:center;">Three ways to make a monthly impact. Every tier means every animal has a champion in their corner.</p>
+  <div class="tiers-grid">
+    <div class="tier-card reveal">
+      <span class="tier-icon">🐾</span>
+      <div class="tier-name">Shelter Friend</div>
+      <div class="tier-price">$15<span>/mo</span></div>
+      <p class="tier-positioning">"I'm in. I care."</p>
+      <ul class="tier-perks">
+        <li>Monthly impact email with real animal stories</li>
+        <li>Your name on the IndyHumane digital donor wall</li>
+        <li>Paw Pack welcome kit (digital)</li>
+        <li>Exclusive insider newsletter each month</li>
+      </ul>
+      <a href="#donate" class="tier-btn">Join as Shelter Friend</a>
+    </div>
+    <div class="tier-card featured reveal">
+      <div class="tier-featured-badge">Most Popular</div>
+      <span class="tier-icon" style="margin-top:1.5rem; display:block;">🐕</span>
+      <div class="tier-name">Pack Leader</div>
+      <div class="tier-price">$50<span>/mo</span></div>
+      <p class="tier-positioning">"I'm invested. Show me more."</p>
+      <ul class="tier-perks">
+        <li>Everything in Shelter Friend</li>
+        <li>Quarterly Polaroid photo of an animal you helped</li>
+        <li>Behind-the-scenes shelter video updates</li>
+        <li>Early access to annual impact report</li>
+        <li>Handwritten thank-you from shelter staff</li>
+      </ul>
+      <a href="#donate" class="tier-btn red">Join as Pack Leader</a>
+    </div>
+    <div class="tier-card reveal">
+      <span class="tier-icon">🦁</span>
+      <div class="tier-name">Guardian</div>
+      <div class="tier-price">$100<span>/mo</span></div>
+      <p class="tier-positioning">"I'm a core part of this."</p>
+      <ul class="tier-perks">
+        <li>Everything in Pack Leader</li>
+        <li>Listed by name in annual report as a Guardian</li>
+        <li>Private tour of IndyHumane facility (annually)</li>
+        <li>Birthday recognition from our Executive Director</li>
+        <li>Anniversary sticker mailed each year</li>
+      </ul>
+      <a href="#donate" class="tier-btn">Join as Guardian</a>
+    </div>
+  </div>
+</section>
+
+<!-- ADDITIONAL SOCIAL PROOF -->
+<section class="social-proof">
+  <span class="section-label" style="color:var(--teal); display:block;">What donors say</span>
+  <h2 class="section-title reveal">People who give monthly never look back.</h2>
+  <div class="proof-grid">
+    <div class="proof-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="proof-quote">"I started at $15 a month. Two years later I'm a Guardian. Watching this shelter work is the best thing I spend money on."</p>
+      <span class="proof-name">Jamie M., Guardian Member</span>
+    </div>
+    <div class="proof-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="proof-quote">"My $50 a month helped fund spay and neuter surgeries for families who could never have afforded it. That is a community win."</p>
+      <span class="proof-name">David R., Pack Leader</span>
+    </div>
+    <div class="proof-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="proof-quote">"IndyHumane saved my cat Biscuit after he came in with serious injuries. I became a monthly donor the day I brought him home."</p>
+      <span class="proof-name">Tina W., Shelter Friend</span>
+    </div>
+  </div>
+  <div class="charity-badge reveal">
+    <span style="font-size:2rem;">⭐</span>
+    <div class="charity-badge-text">
+      <strong style="color:white;">4-Star Charity Navigator Rating</strong><br>
+      IndyHumane is top-rated for transparency and donor stewardship.
+    </div>
+  </div>
+</section>
+
+<!-- DONATION FORM SECTION -->
+<section class="donate-section" id="donate">
+  <h2 class="form-headline reveal">Your $50 this month feeds, heals, and homes a shelter animal.</h2>
+  <p class="form-subline reveal">Set it once. Cancel anytime. Make a difference every single month.</p>
+  <div class="donate-form-box reveal">
+    <p style="font-weight:600; margin-bottom:1rem; color:var(--ink);">Choose your monthly amount:</p>
+    <div class="amount-grid">
+      <button class="amount-btn" onclick="selectAmount(this)">$15</button>
+      <button class="amount-btn active" onclick="selectAmount(this)">$50</button>
+      <button class="amount-btn" onclick="selectAmount(this)">$100</button>
+      <button class="amount-btn" onclick="selectAmount(this)">Other</button>
+    </div>
+    <div class="donate-form-placeholder">
+      [MONTHLY DONATION FORM EMBED — Connect to your existing Bloomerang, Classy, or Give Lively form here. Default to monthly recurring. Suggested amounts: $15, $50, $100.]
+    </div>
+    <a href="https://indyhumane.org/about/ways-to-give/monthly-giving-form/" class="donate-btn-big">
+      Give Monthly Now — Join the Paw Pack
+    </a>
+    <p style="font-size:0.8rem; color:var(--gray); margin-top:1rem;">Tax-deductible. Cancel or change anytime. IndyHumane is a 501(c)3 nonprofit (EIN: 35-0876385).</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <span class="section-label">Questions answered</span>
+  <h2 class="section-title reveal">You have questions. We have answers.</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How is my monthly gift used?</div>
+      <div class="faq-a">Every dollar goes directly to animal care at IndyHumane, including daily food, medical treatment, spay and neuter surgeries, behavioral enrichment, and staffing. IndyHumane receives no government funding, so your monthly gift is the engine that keeps everything running.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I cancel my monthly gift at any time?</div>
+      <div class="faq-a">Yes. You can cancel or adjust your monthly gift at any time with no questions asked and no fees. Just contact us at donate@indyhumane.org or call us directly. We make it easy.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is my donation tax-deductible?</div>
+      <div class="faq-a">Yes. IndyHumane is a registered 501(c)3 nonprofit organization (EIN: 35-0876385). Your monthly gifts are fully tax-deductible to the extent permitted by law. You will receive an annual giving statement for your records.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What makes IndyHumane different from other shelters?</div>
+      <div class="faq-a">IndyHumane does not euthanize animals for length of stay, cost of care, or space. Every animal receives individualized medical and behavioral care. We also operate one of Indiana's first dog parks, a low-cost spay and neuter clinic, and a pet food pantry serving families who need help keeping their pets. We are a full-service community resource, not just a shelter.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is the Paw Pack monthly giving community?</div>
+      <div class="faq-a">The Paw Pack is IndyHumane's official monthly giving community. Members at three tiers — Shelter Friend, Pack Leader, and Guardian — receive exclusive updates, behind-the-scenes access, and perks that deepen their connection to the animals they are helping. It's more than a donation. It's a membership in something meaningful.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How will I know my gift is making a difference?</div>
+      <div class="faq-a">Every month, Paw Pack members receive a real impact update with stories about specific animals their support helped. Pack Leader and Guardian members also receive quarterly photos of shelter animals. You will always know where your money went.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Does IndyHumane receive government funding?</div>
+      <div class="faq-a">No. IndyHumane is a private 501(c)3 nonprofit and relies entirely on the generosity of donors and community partners. This is why monthly giving is so critical. It creates the stable, predictable funding we need to care for thousands of animals year-round.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I give in honor or memory of a pet?</div>
+      <div class="faq-a">Absolutely. IndyHumane offers gifts in memory or in honor of a loved one or a beloved pet. Visit our Ways to Give page for details on how to set this up for a one-time or recurring gift.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How do I volunteer or foster in addition to donating?</div>
+      <div class="faq-a">We would love to have you! Visit indyhumane.org/volunteer to apply for our shelter volunteer program, or indyhumane.org/foster to learn about opening your home to a pet in need. Volunteering and fostering are free, meaningful ways to make an even bigger difference alongside your monthly gift.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What if I want to give more than $100 a month?</div>
+      <div class="faq-a">We love that question. For larger recurring gifts, corporate partnerships, or planned giving, please reach out to our development team directly at indyhumane.org/contact. We have a range of major giving and legacy options available for donors who want to make an even greater impact.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL OPT IN -->
+<section class="optin">
+  <h2 class="reveal">Not ready to give monthly? Stay connected to the animals.</h2>
+  <p class="reveal">Get real stories, adoption wins, and shelter updates delivered straight to your inbox. No fluff, just the animals you care about.</p>
+  <div class="optin-form reveal">
+    <input class="optin-input" type="email" placeholder="Your email address" />
+    <button class="optin-btn">Send Me Stories</button>
+  </div>
+  <p class="optin-fine">Unsubscribe anytime. We respect your inbox.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="https://149955744.v2.pressablecdn.com/wp-content/uploads/2023/05/Logo_Horiz.png" alt="IndyHumane" />
+    <p class="footer-tagline">Committed to helping central Indiana's pets in need since 1905. Find your new best friend today.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <a href="https://indyhumane.org/adopt/">Adopt a Pet</a>
+    <a href="https://indyhumane.org/foster/">Foster</a>
+    <a href="https://indyhumane.org/get-involved/volunteer/">Volunteer</a>
+    <a href="https://indyhumane.org/clinics/">Clinics</a>
+    <a href="https://indyhumane.org/about/ways-to-give/">Ways to Give</a>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <a href="#">7929 N Michigan Rd, Indianapolis, IN 46268</a>
+    <a href="#">Downtown Clinic: 456 N Holmes Ave</a>
+    <a href="https://indyhumane.org/contact/">Send an Inquiry</a>
+    <a href="https://indyhumane.org/faq/">FAQ</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  &copy; 2025 IndyHumane (Humane Society of Indianapolis, Inc.) | 501(c)3 Nonprofit | EIN: 35-0876385 | <a href="https://indyhumane.org/privacy-policy/" style="color:inherit;">Privacy Policy</a>
+</div>
+
+<script>
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    item.classList.toggle('open');
+  }
+
+  // Amount button selection
+  function selectAmount(btn) {
+    document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
